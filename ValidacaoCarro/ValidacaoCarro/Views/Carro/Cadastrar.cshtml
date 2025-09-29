@@ -1,0 +1,59 @@
+@model ValidacaoCarro.Models.CarroViewModel
+
+<h2>Cadastro de Carro</h2>
+
+@using (Html.BeginForm("Cadastrar", "Carro", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Placa)
+        @Html.TextBoxFor(m => m.Placa, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Placa, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Renavam)
+        @Html.TextBoxFor(m => m.Renavam, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Renavam, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Chassi)
+        @Html.TextBoxFor(m => m.Chassi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Chassi, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AnoFabricacao)
+        @Html.TextBoxFor(m => m.AnoFabricacao, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.AnoFabricacao, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AnoModelo)
+        @Html.TextBoxFor(m => m.AnoModelo, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.AnoModelo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TipoCombustivel)
+        @Html.DropDownListFor(m => m.TipoCombustivel,
+            new SelectList(new[] { "Gasolina", "Diesel", "Etanol", "Flex", "Elétrico", "GNV" }),
+            "-- Selecione --",
+            new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TipoCombustivel, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ValorSeguro)
+        @Html.TextBoxFor(m => m.ValorSeguro, new { @class = "form-control", type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(m => m.ValorSeguro, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NomeProprietario)
+        @Html.TextBoxFor(m => m.NomeProprietario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NomeProprietario, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+}
